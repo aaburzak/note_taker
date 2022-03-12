@@ -1,7 +1,6 @@
 const fs = require ('fs');
 const path = require ('path');
 const express = require ('express');
-const noteDb = require('./db/db.json')
 const uuid = require('uuid');
 
 const app = express();
@@ -29,7 +28,7 @@ app.post('/api/notes', (req,res) => {
     const addNote = req.body;
     addNote.id = uuid.v1();
     notes.push(addNote);
-    fs.writeFileSync("./db/db.json", JSON.stringify(notes))
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes))
     res.json(notes);
 });
 
@@ -39,34 +38,9 @@ app.delete ('/api/notes/:id', (req, res) => {
     const notes = JSON.parse(fs.readFileSync('./db/db.json'));
     const newDb = notes.filter(note => note.id !== deleteId);
     
-    fs.writeFileSync("./db/db.json", JSON.stringify(newDb));
+    fs.writeFileSync('./db/db.json', JSON.stringify(newDb));
     res.json(newDb);
-    // for (let i = 0; i < noteDb.length; i++){
-    //     if(deleteId === noteDb[i].id){
-    //         noteDb.splice(i,1);
-    //         res.json(notes)  
-        // }   
-    // }
-    // const deleteNote = notes.filter((deletedNote) => deletedNote.id === deleteId);
-    // fs.writeFileSync('./db/db.json', JSON.stringify(noteDelete));
-    // res.json(noteDelete);
-    // // console.log(uuid.v1())
     console.log('Req.params:', deleteId);
-
-
-    // for (let i = 0; i < noteDb.length; i++){
-    //     if (deleteId === noteDb[i].id){
-    //         noteDb.splice(i, 1);
-
-    //         let noteJSON = JSON.stringify(noteDb, null, 2);
-    //         console.log(noteJSON);
-    //         fs.writeFile('./db/db.json', noteJSON, function (err){
-    //             if (err) throw err;
-    //             console.log("Note successfully deleted!")
-    //             res.json(noteDb);
-    //         });
-    //     }
-    // }
 });
 
 //HTML call for the homepage
