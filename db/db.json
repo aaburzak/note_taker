@@ -1,6 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
+[{"title":"first note","text":"what a joke","id":"7d9cd1a0-a18e-11ec-956a-b576c8b88e81"},{"title":"third note","text":"still broke?","id":"41138f50-a196-11ec-a4d7-c18506321465"},{"title":"fourth note","text":"does this still work?","id":"61612530-a207-11ec-8674-c75a3643d5b3"},{"title":"fifth note","text":"still works","id":"37d05140-a208-11ec-9f03-c51f552ef044"}]
